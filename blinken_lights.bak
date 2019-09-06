@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:blinken_lights-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -14,15 +15,159 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 8100 2250 1400 800 
+S 7950 2200 550  550 
 U 5D71982B
-F0 "carlie_leds" 50
+F0 "charlie_leds" 50
 F1 "charlie.sch" 50
+F2 "in_1" I L 7950 2300 50 
+F3 "in_2" I L 7950 2400 50 
+F4 "in_3" I L 7950 2500 50 
+F5 "in_4" I L 7950 2600 50 
 $EndSheet
-$Sheet
-S 8750 4100 700  800 
-U 5D7199E2
-F0 "icsp" 50
-F1 "icsp.sch" 50
-$EndSheet
+$Comp
+L MCU_Microchip_ATtiny:ATtiny85-20SU U1
+U 1 1 5D733030
+P 7050 2600
+F 0 "U1" H 6521 2646 50  0000 R CNN
+F 1 "ATtiny85-20SU" H 6521 2555 50  0000 R CNN
+F 2 "Package_SO:SOIJ-8_5.3x5.3mm_P1.27mm" H 7050 2600 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 7050 2600 50  0001 C CNN
+	1    7050 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female VCC1
+U 1 1 5D733E55
+P 7350 1850
+F 0 "VCC1" H 7378 1830 50  0000 L CNN
+F 1 "Conn_01x01_Female" H 7378 1785 50  0001 L CNN
+F 2 "Pin_D1.0mm_L10.0mm_LooseFit" H 7350 1850 50  0001 C CNN
+F 3 "~" H 7350 1850 50  0001 C CNN
+	1    7350 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Female J1
+U 1 1 5D73653F
+P 6750 3350
+F 0 "J1" H 6642 3217 50  0000 C CNN
+F 1 "Conn_01x01_Female" V 6597 3262 50  0001 R CNN
+F 2 "Pin_D1.0mm_L10.0mm_LooseFit" H 6750 3350 50  0001 C CNN
+F 3 "~" H 6750 3350 50  0001 C CNN
+	1    6750 3350
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:Earth #GND01
+U 1 1 5D736606
+P 7150 3350
+F 0 "#GND01" H 7150 3100 50  0001 C CNN
+F 1 "Earth" H 7150 3200 50  0001 C CNN
+F 2 "" H 7150 3350 50  0001 C CNN
+F 3 "~" H 7150 3350 50  0001 C CNN
+	1    7150 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 3200 7050 3300
+Wire Wire Line
+	7050 3300 6950 3300
+Wire Wire Line
+	6950 3300 6950 3350
+Wire Wire Line
+	7050 3300 7150 3300
+Wire Wire Line
+	7150 3300 7150 3350
+Connection ~ 7050 3300
+$Comp
+L power:+3V0 #PWR0101
+U 1 1 5D738D64
+P 6950 1850
+F 0 "#PWR0101" H 6950 1700 50  0001 C CNN
+F 1 "+3V0" H 6965 2023 50  0000 C CNN
+F 2 "" H 6950 1850 50  0001 C CNN
+F 3 "" H 6950 1850 50  0001 C CNN
+	1    6950 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 2000 7050 1900
+Wire Wire Line
+	7050 1900 7150 1900
+Wire Wire Line
+	7150 1900 7150 1850
+Wire Wire Line
+	7050 1900 6950 1900
+Wire Wire Line
+	6950 1900 6950 1850
+Connection ~ 7050 1900
+$Comp
+L Device:R_Small_US R?
+U 1 1 5D73CA51
+P 7800 2950
+AR Path="/5D71982B/5D73CA51" Ref="R?"  Part="1" 
+AR Path="/5D73CA51" Ref="R6"  Part="1" 
+F 0 "R6" V 7595 2950 50  0000 C CNN
+F 1 "10k" V 7686 2950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7800 2950 50  0001 C CNN
+F 3 "~" H 7800 2950 50  0001 C CNN
+	1    7800 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C1
+U 1 1 5D740716
+P 6100 2100
+F 0 "C1" H 6192 2146 50  0000 L CNN
+F 1 "C_Small" H 6192 2055 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6100 2100 50  0001 C CNN
+F 3 "~" H 6100 2100 50  0001 C CNN
+	1    6100 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V0 #PWR0102
+U 1 1 5D742F52
+P 6100 2000
+F 0 "#PWR0102" H 6100 1850 50  0001 C CNN
+F 1 "+3V0" H 6115 2173 50  0000 C CNN
+F 2 "" H 6100 2000 50  0001 C CNN
+F 3 "" H 6100 2000 50  0001 C CNN
+	1    6100 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #GND0101
+U 1 1 5D743FB5
+P 6100 2200
+F 0 "#GND0101" H 6100 1950 50  0001 C CNN
+F 1 "Earth" H 6100 2050 50  0001 C CNN
+F 2 "" H 6100 2200 50  0001 C CNN
+F 3 "~" H 6100 2200 50  0001 C CNN
+	1    6100 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V0 #PWR?
+U 1 1 5D7458B2
+P 7800 3100
+F 0 "#PWR?" H 7800 2950 50  0001 C CNN
+F 1 "+3V0" H 7815 3273 50  0000 C CNN
+F 2 "" H 7800 3100 50  0001 C CNN
+F 3 "" H 7800 3100 50  0001 C CNN
+	1    7800 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7800 2850 7800 2800
+Wire Wire Line
+	7800 2800 7650 2800
+Wire Wire Line
+	7650 2300 7950 2300
+Wire Wire Line
+	7650 2400 7950 2400
+Wire Wire Line
+	7650 2500 7950 2500
+Wire Wire Line
+	7650 2600 7950 2600
 $EndSCHEMATC
